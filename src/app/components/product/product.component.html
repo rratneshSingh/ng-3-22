@@ -1,0 +1,6 @@
+<div [class.outOfStock]="product?.outOfStock">
+    <h1>{{product?.title}}</h1>
+    <p>Price: {{product?.price}}</p>
+    <p>Brand: {{product?.brand}}</p>
+    <p *ngIf="product?.outOfStock">This product is out of stock please visit after some time</p>
+</div>

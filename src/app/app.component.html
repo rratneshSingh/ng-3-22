@@ -1,14 +1,3 @@
-<h1>{{title}}</h1>
 
-<app-header></app-header>
 
-<app-common [title]="name"></app-common>
-<app-common title="Singh"></app-common>
-<app-common title="Ram"></app-common>
-<app-common title="Shyam"></app-common>
-<button type="submit" (click)="name = 'New Random Vlaue'">Change the name value to New Random</button>
-<button type="submit" (click)="displaySomething($event)">Call Display Something</button>
-<br/>
-<input type="text" [value]="name" (input)="displaySomething($event)"/>
-<app-footer></app-footer>
-
+<app-product *ngFor="let p of products" [product]="p"></app-product>

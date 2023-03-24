@@ -1,0 +1,8 @@
+.outOfStock {
+    color: white;
+    background: red;
+}
+
+.active {
+    font-size: 2rem;
+}
