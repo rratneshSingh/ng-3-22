@@ -1,0 +1,10 @@
+
+
+<button *ngIf="count === 0; else hasItems" type="button" class="btn btn-primary" (click)="onAdd.emit()">Add to cart</button>
+<ng-template #hasItems>
+    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+        <button type="button" class="btn btn-danger" (click)="onAdd.emit()">+</button>
+        <button type="button" class="btn btn-warning">{{ count }}</button>
+        <button type="button" class="btn btn-success" (click)="onSubstract.emit()">-</button>
+    </div>
+</ng-template>

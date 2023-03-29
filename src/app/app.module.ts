@@ -5,13 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { SharedModule } from './shared/shared.module';
+import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
+import { AddRemoveCartComponent } from './components/add-remove-cart/add-remove-cart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ProductComponent
+    ProductsComponent,
+    ProductComponent,
+    AddRemoveCartComponent
   ],
   imports: [
     BrowserModule,
