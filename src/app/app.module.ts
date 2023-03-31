@@ -8,6 +8,8 @@ import { SharedModule } from './shared/shared.module';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductComponent } from './components/product/product.component';
 import { AddRemoveCartComponent } from './components/add-remove-cart/add-remove-cart.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ProductService } from './services/product.service';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,15 @@ import { AddRemoveCartComponent } from './components/add-remove-cart/add-remove-
     HeaderComponent,
     ProductsComponent,
     ProductComponent,
-    AddRemoveCartComponent
+    AddRemoveCartComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
