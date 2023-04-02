@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
+  filteredProducts: Product[] = [];
 
   cart: Array<{
     product: Product,
@@ -35,12 +36,25 @@ export class ProductsComponent implements OnInit {
     }
   }
 
+  search = '';
+
   constructor(public ps: ProductService) { }
 
   ngOnInit(): void {
     this.products = this.ps.products;
+    this.filteredProducts = this.products;
     this.ps.cart$.subscribe((cart)=>{
       this.cart = cart;
+    });
+    this.ps.search$.subscribe((search)=>{
+      this.search = search;
+      this.searchProduct();
     })
+  }
+
+  searchProduct() {
+    this.filteredProducts = this.products.filter( (p) => {
+      return p.title.toLowerCase().includes(this.search.toLowerCase());
+    });
   }
 }

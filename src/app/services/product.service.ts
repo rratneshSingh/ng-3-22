@@ -2,6 +2,11 @@ import { BehaviorSubject } from 'rxjs';
 import { Product } from '../models/product.model';
 
 export class ProductService {
+
+    search = '';
+
+    search$ = new BehaviorSubject(this.search);
+
     products: Array<Product> = [
         {
           id: 'a1',
@@ -45,6 +50,7 @@ export class ProductService {
           })
         }
         this.cart$.next(this.cart);
+        localStorage.setItem('cart', JSON.stringify(this.cart))
       }
     
       removeFromCart(productId: string) {
@@ -58,6 +64,18 @@ export class ProductService {
             this.cart[cIndex].count -= 1;
           }
         }
+        this.cart$.next(this.cart);
+        localStorage.setItem('cart', JSON.stringify(this.cart))
+      }
+
+
+      updateSearch(search: string) {
+        this.search = search;
+        this.search$.next(this.search);
+      }
+
+      constructor() {
+        this.cart = JSON.parse(localStorage.getItem('cart') || '[]');
         this.cart$.next(this.cart);
       }
 }
