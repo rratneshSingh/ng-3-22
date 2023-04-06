@@ -74,6 +74,10 @@ export class ProductService {
         this.search$.next(this.search);
       }
 
+      getProductById(id: string) {
+        return this.products.find( p => p.id === id) || null
+      }
+
       constructor() {
         this.cart = JSON.parse(localStorage.getItem('cart') || '[]');
         this.cart$.next(this.cart);

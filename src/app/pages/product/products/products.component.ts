@@ -38,7 +38,9 @@ export class ProductsComponent implements OnInit {
 
   search = '';
 
-  constructor(public ps: ProductService) { }
+  constructor(public ps: ProductService) {
+    console.log(ps);
+  }
 
   ngOnInit(): void {
     this.products = this.ps.products;

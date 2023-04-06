@@ -13,3 +13,5 @@ export class NotFoundComponent implements OnInit {
   }
 
 }
+
+export const Random = 9;

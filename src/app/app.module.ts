@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { ProductsComponent } from './components/products/products.component';
-import { ProductComponent } from './components/product/product.component';
-import { AddRemoveCartComponent } from './components/add-remove-cart/add-remove-cart.component';
-import { CartComponent } from './components/cart/cart.component';
+import { CartComponent } from './pages/cart/cart/cart.component';
 import { ProductService } from './services/product.service';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
@@ -14,19 +10,16 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ProductsComponent,
-    ProductComponent,
-    AddRemoveCartComponent,
-    CartComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     SharedModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      { path: 'products', component: ProductsComponent },
-      { path: 'cart', component: CartComponent },
+      { path: 'products', loadChildren: () => import('./pages/product/product.module').then((m)=>m.ProductModule) },
+      { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then((m)=>m.CartModule) },
+      { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then((m)=>m.AdminModule) },
       { path: '**', component: NotFoundComponent }
     ])
   ],
