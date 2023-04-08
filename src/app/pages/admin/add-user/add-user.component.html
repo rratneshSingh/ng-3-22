@@ -1,0 +1,31 @@
+<form [formGroup]="form">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email</label>
+        <input formControlName="email" type="text" class="form-control" id="exampleInputEmail1">
+        <p style="color: red;" *ngIf="email?.dirty && email?.errors?.['required']">Email is required.</p>
+        <p style="color: red;" *ngIf="email?.dirty && !email?.errors?.['required'] && email?.errors?.['customEmail']">Email is wrong format.</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputFirstName1" class="form-label">FirstName</label>
+        <input formControlName="firstName" type="text" class="form-control" id="exampleInputFirtsName1">
+        <p style="color: red;" *ngIf="firstName?.dirty && firstName?.errors?.['required']">firtname is required.</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputLastName1" class="form-label">LastName</label>
+        <input formControlName="lastName"  type="text" class="form-control" id="exampleInputLastName1">
+        <p style="color: red;" *ngIf="lastName?.dirty && lastName?.errors?.['required']">lastName is required.</p>
+    </div>
+    <ng-container formGroupName="address">
+        <div class="mb-3">
+            <label for="exampleInputCity1" class="form-label">City</label>
+            <input formControlName="city"  type="text" class="form-control" id="exampleInputCity1">
+            <p style="color: red;" *ngIf="city?.dirty && city?.errors?.['required']">City is required.</p>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputState1" class="form-label">State</label>
+            <input formControlName="state"  type="text" class="form-control" id="exampleInputState1">
+            <p style="color: red;" *ngIf="state?.dirty && state?.errors?.['required']">State is required.</p>
+        </div>
+    </ng-container>
+    <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
+</form>

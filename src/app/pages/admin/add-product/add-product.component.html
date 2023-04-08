@@ -1,1 +1,24 @@
-<p>add-product works!</p>
+<form #f="ngForm">
+    <div class="mb-3">
+        <label for="exampleInputTitle1" class="form-label">Title</label>
+        <input ngModel #title="ngModel" name="title" type="text" class="form-control" id="exampleInputTitle1" required>
+        <p style="color: red;" *ngIf="title.dirty && title.errors?.['required']">Title is required.</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputDescription1" class="form-label">Description</label>
+        <input ngModel #desc="ngModel" name="description" type="text" class="form-control" id="exampleInputDescription1" required>
+        <p style="color: red;" *ngIf="desc.dirty && desc.errors?.['required']">desc is required.</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPrice1" class="form-label">Price</label>
+        <input ngModel #price="ngModel" name="price"  type="number" class="form-control" id="exampleInputPrice1" required max="1000">
+        <p style="color: red;" *ngIf="price.dirty && price.errors?.['required']">price is required.</p>
+        <p style="color: red;" *ngIf="price.dirty && price.errors?.['max']">price should be maximum 1000</p>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputBrand1" class="form-label">Brand</label>
+        <input ngModel #brand="ngModel" name="brand"  type="text" class="form-control" id="exampleInputBrand1" required>
+        <p style="color: red;" *ngIf="brand.dirty && brand.errors?.['required']">brand is required.</p>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="submit(f.value)">Submit</button>
+</form>

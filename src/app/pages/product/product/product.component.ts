@@ -4,7 +4,8 @@ import { Product } from 'src/app/models/product.model';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
+  exportAs: 'pc'
 })
 export class ProductComponent implements OnInit {
 
@@ -17,6 +18,10 @@ export class ProductComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  show(value: any) {
+    console.log(value);
   }
 
 }
