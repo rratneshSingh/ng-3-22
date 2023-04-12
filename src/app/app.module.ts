@@ -7,6 +7,7 @@ import { ProductService } from './services/product.service';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NotFoundComponent } from './shared/not-found/not-found.component';
   imports: [
     BrowserModule,
     SharedModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'products', loadChildren: () => import('./pages/product/product.module').then((m)=>m.ProductModule) },

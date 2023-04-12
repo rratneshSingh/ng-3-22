@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/models/product.model';
+import { CartItem, Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -12,10 +12,7 @@ export class ProductsComponent implements OnInit {
   products: Product[] = [];
   filteredProducts: Product[] = [];
 
-  cart: Array<{
-    product: Product,
-    count: number
-  }> = [];
+  cart: CartItem[] = [];
 
   get totalItemsInCart() {
     let totalCount = 0;
@@ -25,7 +22,7 @@ export class ProductsComponent implements OnInit {
     return totalCount;
   }
 
-  getProductCountInCart(id: string) {
+  getProductCountInCart(id: number) {
     const cItem = this.cart.find((c) => {
       return c.product.id === id;
     });
@@ -43,8 +40,16 @@ export class ProductsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.ps.products;
-    this.filteredProducts = this.products;
+    this.ps.getAllProducts().subscribe( products => {
+      this.products = products;
+      this.filteredProducts = this.products;
+      console.log('Next');
+    },error => {
+      console.log('Error');
+    }, () => {
+      console.log('Complete');
+    });
+
     this.ps.cart$.subscribe((cart)=>{
       this.cart = cart;
     });

@@ -13,7 +13,7 @@ export class ProductComponent implements OnInit {
   @Input() noOfItemInTheCart = 0;
 
   @Output() onAddToCart = new EventEmitter<Product | null >();
-  @Output() onRemoveFromCart = new EventEmitter<string>();
+  @Output() onRemoveFromCart = new EventEmitter<number>();
 
   constructor() { }
 

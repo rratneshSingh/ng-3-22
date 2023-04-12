@@ -15,4 +15,14 @@ export class AddRemoveCartComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onAddClick( e: Event ) {
+    e.stopPropagation();
+    this.onAdd.emit()
+  }
+
+  onRemoveClick(e: Event) {
+    e.stopPropagation();
+    this.onSubstract.emit()
+  }
 }

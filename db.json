@@ -1,0 +1,33 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "title": "Laptop",
+      "brand": "Hp",
+      "price": 45000,
+      "description": "4GB Ram, 256 SSD, 15inch screen"
+    },
+    {
+      "id": 2,
+      "title": "Mobile",
+      "price": 20000,
+      "brand": "Samsung",
+      "outOfStock": true,
+      "description": "4GB Ram, 256 SSD, 15inch screen"
+    }
+  ],
+  "cart": [
+    {
+      "id": 2,
+      "product": {
+        "id": 2,
+        "title": "Mobile",
+        "price": 20000,
+        "brand": "Samsung",
+        "outOfStock": true,
+        "description": "4GB Ram, 256 SSD, 15inch screen"
+      },
+      "count": 2
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 export class Product {
-    id: string;
+    id: number;
     title: string;
     price: number;
     brand?: string;
     outOfStock?: boolean;
     description?: string;
   
-    constructor(id: string, title = 'No Title', price = 0, brand = '', outOfStock = false, description = '') {
+    constructor(id: number, title = 'No Title', price = 0, brand = '', outOfStock = false, description = '') {
       this.title = title;
       this.price = price;
       this.brand = brand;
@@ -16,3 +16,8 @@ export class Product {
     }
   }
   
+  export interface CartItem {
+    id: number;
+    product: Product,
+    count: number
+  }
