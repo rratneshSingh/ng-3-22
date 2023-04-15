@@ -1,0 +1,10 @@
+<h1>Users</h1>
+
+<ol class="list-group list-group-numbered">
+    <li *ngFor="let user of users" class="list-group-item d-flex justify-content-between align-items-start">
+        FirstName: {{ user.firstName}}
+        LastName: {{ user.lastName}}
+        Email: {{ user.email}}
+        Address: {{ user.address.city }}, {{ user.address.state }}
+    </li>
+</ol>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
   selector: 'app-add-user',
@@ -11,6 +13,7 @@ export class AddUserComponent implements OnInit {
   form = new FormGroup({
     // email: new FormControl('', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]),
     email: new FormControl('', [Validators.required, this.emailValidation]),
+    password: new FormControl('', [Validators.required]),
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     address: new FormGroup({
@@ -26,13 +29,15 @@ export class AddUserComponent implements OnInit {
     };
   }
 
-  constructor() { }
+  constructor(private adminService: AdminService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   submit() {
-    console.log(this.form);
+    this.adminService.addUser({ ...this.form.value, id: this.form.value.email }).subscribe( () => {
+      this.router.navigateByUrl('/admin/users');
+    })
   }
 
   get firstName() {
@@ -53,5 +58,9 @@ export class AddUserComponent implements OnInit {
 
   get state() {
     return this.form.get('address')?.get('state');
+  }
+
+  get password() {
+    return this.form.get('password');
   }
 }

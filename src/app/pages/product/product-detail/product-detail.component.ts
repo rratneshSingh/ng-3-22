@@ -10,6 +10,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
 
+  date = new Date();
+
   product: Product | null = null;
 
   constructor(private ps: ProductService, private ar: ActivatedRoute) { }

@@ -5,7 +5,7 @@
       "title": "Laptop",
       "brand": "Hp",
       "price": 45000,
-      "description": "4GB Ram, 256 SSD, 15inch screen"
+      "description": "4GB Ram, 256 SSD, 15inch screen dghsgdhs dsdhs dsdhsgdh dshdghsgd"
     },
     {
       "id": 2,
@@ -27,7 +27,42 @@
         "outOfStock": true,
         "description": "4GB Ram, 256 SSD, 15inch screen"
       },
-      "count": 2
+      "count": 1
+    }
+  ],
+  "user": [
+    {
+      "email": "abc@yopmail.com",
+      "password": "abc123",
+      "firstName": "Ratnesh",
+      "lastName": "Singh",
+      "address": {
+        "city": "ALLAHABAD",
+        "state": "Gurukul Convent School"
+      },
+      "id": "abc@yopmail.com"
+    },
+    {
+      "email": "abcd@gmail.com",
+      "password": "abc@234",
+      "firstName": "Rakesh",
+      "lastName": "Singh",
+      "address": {
+        "city": "ALLAHABAD",
+        "state": "Gurukul Convent School"
+      },
+      "id": "abcd@gmail.com"
+    },
+    {
+      "email": "xyz@gmail.com",
+      "password": "abcd!234",
+      "firstName": "Ratnesh",
+      "lastName": "Singh",
+      "address": {
+        "city": "ALLAHABAD",
+        "state": "Gurukul Convent School"
+      },
+      "id": "xyz@gmail.com"
     }
   ]
 }

@@ -6,6 +6,11 @@
         <p style="color: red;" *ngIf="email?.dirty && !email?.errors?.['required'] && email?.errors?.['customEmail']">Email is wrong format.</p>
     </div>
     <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Password</label>
+        <input formControlName="password" type="password" class="form-control" id="exampleInputEmail1">
+        <p style="color: red;" *ngIf="password?.dirty && password?.errors?.['required']">Password is required.</p>
+    </div>
+    <div class="mb-3">
         <label for="exampleInputFirstName1" class="form-label">FirstName</label>
         <input formControlName="firstName" type="text" class="form-control" id="exampleInputFirtsName1">
         <p style="color: red;" *ngIf="firstName?.dirty && firstName?.errors?.['required']">firtname is required.</p>

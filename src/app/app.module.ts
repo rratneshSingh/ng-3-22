@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -18,10 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent },
-      { path: 'products', loadChildren: () => import('./pages/product/product.module').then((m)=>m.ProductModule) },
-      { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then((m)=>m.CartModule) },
-      { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then((m)=>m.AdminModule) },
+      { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+      { path: 'products', loadChildren: () => import('./pages/product/product.module').then((m)=>m.ProductModule), canLoad: [AuthGuard] },
+      { path: 'cart', loadChildren: () => import('./pages/cart/cart.module').then((m)=>m.CartModule), canLoad: [AuthGuard]  },
+      { path: 'admin', loadChildren: () => import('./pages/admin/admin.module').then((m)=>m.AdminModule), canLoad: [AuthGuard]  },
+      { path: 'auth', loadChildren: () => import('./pages/auth/auth.module').then((m)=>m.AuthModule) },
       { path: '**', component: NotFoundComponent }
     ])
   ],

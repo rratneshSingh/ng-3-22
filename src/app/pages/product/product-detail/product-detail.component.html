@@ -1,6 +1,7 @@
-<h1>{{ product?.title }}</h1>
-<h3>Price: {{ product?.price }}</h3>
+<h1>{{ product?.title | uppercase }}</h1>
+<h3>Price: {{ product?.price | currency:'CAD' }}</h3>
 <h3>Brand: {{ product?.brand }}</h3>
-<p>{{ product?.description }}</p>
+<p>{{ product?.description | readMore }}</p>
 <p style="color: red" *ngIf="product?.outOfStock">Out of Stock</p>
+<p>Date: {{ date | date:'MMM d, y, h:mm a' }}</p>
 

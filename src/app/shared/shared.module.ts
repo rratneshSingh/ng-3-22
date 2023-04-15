@@ -8,6 +8,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { FormsModule } from '@angular/forms';
 import { AddRemoveCartComponent } from './add-remove-cart/add-remove-cart.component';
 import { ProductService } from '../services/product.service';
+import { ReadMorePipe } from './pipes/read-more.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProductService } from '../services/product.service';
     FooterComponent,
     HeaderComponent,
     NotFoundComponent,
-    AddRemoveCartComponent
+    AddRemoveCartComponent,
+    ReadMorePipe
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,6 @@ import { ProductService } from '../services/product.service';
     RouterModule
   ],
   providers: [],
-  exports: [CommonComponent,FooterComponent, HeaderComponent, AddRemoveCartComponent]
+  exports: [CommonComponent,FooterComponent, HeaderComponent, AddRemoveCartComponent, ReadMorePipe]
 })
 export class SharedModule { }
