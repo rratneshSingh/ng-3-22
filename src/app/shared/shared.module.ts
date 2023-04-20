@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { AddRemoveCartComponent } from './add-remove-cart/add-remove-cart.component';
 import { ProductService } from '../services/product.service';
 import { ReadMorePipe } from './pipes/read-more.pipe';
+import { HoverColorDirective } from './directives/hover-color.directive';
+import { TwoWayDirective } from './directives/two-way.directive';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ReadMorePipe } from './pipes/read-more.pipe';
     HeaderComponent,
     NotFoundComponent,
     AddRemoveCartComponent,
-    ReadMorePipe
+    ReadMorePipe,
+    HoverColorDirective,
+    TwoWayDirective
   ],
   imports: [
     CommonModule,
@@ -25,6 +29,6 @@ import { ReadMorePipe } from './pipes/read-more.pipe';
     RouterModule
   ],
   providers: [],
-  exports: [CommonComponent,FooterComponent, HeaderComponent, AddRemoveCartComponent, ReadMorePipe]
+  exports: [CommonComponent,FooterComponent, HeaderComponent, AddRemoveCartComponent, ReadMorePipe, HoverColorDirective, TwoWayDirective]
 })
 export class SharedModule { }

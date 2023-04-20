@@ -14,6 +14,8 @@ export class ProductDetailComponent implements OnInit {
 
   product: Product | null = null;
 
+  title = 'dsddsdss';
+
   constructor(private ps: ProductService, private ar: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -21,5 +23,9 @@ export class ProductDetailComponent implements OnInit {
     this.ps.getProductById(productId).subscribe( product => {
       this.product = product;
     })
+  }
+
+  change(value: string) {
+    this.title = value;
   }
 }

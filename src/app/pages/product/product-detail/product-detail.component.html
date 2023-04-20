@@ -1,7 +1,10 @@
-<h1>{{ product?.title | uppercase }}</h1>
-<h3>Price: {{ product?.price | currency:'CAD' }}</h3>
+<h1 appHoverColor color="red" name="dhskhdak" [id]="product?.title">{{ product?.title | uppercase }}</h1>
+<h3 appHoverColor name="dhskhdak">Price: {{ product?.price | currency:'CAD' }}</h3>
 <h3>Brand: {{ product?.brand }}</h3>
 <p>{{ product?.description | readMore }}</p>
 <p style="color: red" *ngIf="product?.outOfStock">Out of Stock</p>
 <p>Date: {{ date | date:'MMM d, y, h:mm a' }}</p>
+
+<input type="text" [(twoWay)]="title"/>
+{{ title }}
 
