@@ -13,7 +13,7 @@
     <div class="mb-3">
         <label for="exampleInputFirstName1" class="form-label">FirstName</label>
         <input formControlName="firstName" type="text" class="form-control" id="exampleInputFirtsName1">
-        <p style="color: red;" *ngIf="firstName?.dirty && firstName?.errors?.['required']">firtname is required.</p>
+        <p style="color: red;" *ngIf="(firstName?.dirty) && firstName?.errors?.['required']">firtname is required.</p>
     </div>
     <div class="mb-3">
         <label for="exampleInputLastName1" class="form-label">LastName</label>
@@ -31,6 +31,24 @@
             <input formControlName="state"  type="text" class="form-control" id="exampleInputState1">
             <p style="color: red;" *ngIf="state?.dirty && state?.errors?.['required']">State is required.</p>
         </div>
+    </ng-container>
+    <h3>Skills</h3>
+    <ng-container formArrayName="skills">
+        <ng-container *ngFor="let skillGroup of skills.controls; let i = index;" [formGroupName]="i">
+            <h5>Skill: {{ i + 1 }}</h5>
+            <div class="mb-3">
+                <label for="exampleInputState1" class="form-label">Title</label>
+                <input formControlName="title"  type="text" class="form-control" id="exampleInputState1">
+                <p style="color: red;" *ngIf="skillGroup.get('title')?.dirty && skillGroup.get('title')?.errors?.['required']">Title is required.</p>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputState1" class="form-label">Experience</label>
+                <input formControlName="exp"  type="text" class="form-control" id="exampleInputState1">
+                <p style="color: red;" *ngIf="skillGroup.get('exp')?.dirty && skillGroup.get('exp')?.errors?.['required']">Experiance is required.</p>
+            </div>
+            <button type="secondary" type="button" (click)="removeSkill(i)">Delete</button>
+        </ng-container>
+        <button class="primary" type="button" (click)="addSkill()">Add Skill</button>
     </ng-container>
     <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
 </form>

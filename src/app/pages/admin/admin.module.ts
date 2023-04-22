@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddUserComponent } from './add-user/add-user.component';
 import { UsersComponent } from './users/users.component';
+import { UserGuard } from './guard/user.guard';
 
 
 
@@ -20,9 +21,9 @@ import { UsersComponent } from './users/users.component';
     ReactiveFormsModule,
     RouterModule.forChild([
       { path: 'add-product', component: AddProductComponent },
-      { path: 'add-user', component: AddUserComponent },
+      { path: 'add-user', component: AddUserComponent, canDeactivate: [ UserGuard ] },
       { path: 'users', component: UsersComponent },
     ])
-  ]
+  ], providers: [ UserGuard ]
 })
 export class AdminModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 
@@ -10,6 +10,8 @@ import { AdminService } from 'src/app/services/admin.service';
 })
 export class AddUserComponent implements OnInit {
 
+  isSubmitCliked = false;
+
   form = new FormGroup({
     // email: new FormControl('', [Validators.required, Validators.pattern(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)]),
     email: new FormControl('', [Validators.required, this.emailValidation]),
@@ -19,7 +21,8 @@ export class AddUserComponent implements OnInit {
     address: new FormGroup({
       city: new FormControl('', Validators.required),
       state: new FormControl('', Validators.required)
-    })
+    }),
+    skills: new FormArray([])
   });
 
   emailValidation(control: AbstractControl) {
@@ -35,9 +38,24 @@ export class AddUserComponent implements OnInit {
   }
 
   submit() {
+    this.isSubmitCliked = true;
+    if ( !this.form.invalid ) {
+      return;
+    }
     this.adminService.addUser({ ...this.form.value, id: this.form.value.email }).subscribe( () => {
       this.router.navigateByUrl('/admin/users');
     })
+  }
+
+  addSkill() {
+    this.skills.push( new FormGroup({
+      title: new FormControl('', [Validators.required]),
+      exp: new FormControl('', [Validators.required])
+    }))
+  }
+
+  removeSkill(i:number) {
+    this.skills.removeAt(i);
   }
 
   get firstName() {
@@ -62,5 +80,9 @@ export class AddUserComponent implements OnInit {
 
   get password() {
     return this.form.get('password');
+  }
+
+  get skills() {
+    return this.form.get('skills') as FormArray;
   }
 }

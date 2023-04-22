@@ -63,6 +63,23 @@
         "state": "Gurukul Convent School"
       },
       "id": "xyz@gmail.com"
+    },
+    {
+      "email": "ratnesh@yopmail.com",
+      "password": "12345678",
+      "firstName": "",
+      "lastName": "",
+      "address": {
+        "city": "",
+        "state": ""
+      },
+      "skills": [
+        {
+          "title": "",
+          "exp": ""
+        }
+      ],
+      "id": "ratnesh@yopmail.com"
     }
   ]
 }
