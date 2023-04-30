@@ -2,6 +2,11 @@
 <h6>Cart: <span class="badge bg-secondary" style="color: #ffffff">{{ totalItemsInCart }}</span></h6>
 <div class="row">
     <div class="col-4" *ngFor="let product of filteredProducts">
-        <app-product (onAddToCart)="ps.addToCart($event)" (onRemoveFromCart)="ps.removeFromCart($event)" [product]="product" [noOfItemInTheCart]="getProductCountInCart(product.id)"></app-product>
+        <app-product (onAddToCart)="ps.addToCart($event)" (onRemoveFromCart)="ps.removeFromCart($event)" [product]="product" [noOfItemInTheCart]="getProductCountInCart(product.id)">
+            <button #button id="btn-x">Click Me</button>
+            <p id="p-y">Hello World!!</p>
+        </app-product>
     </div>
 </div>
+
+Search: <input type="text" (input)="print($event)" >

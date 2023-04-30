@@ -3,12 +3,16 @@
         <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
             <div>
                 <h5 class="card-title">{{ product?.title }}</h5>
+                <ng-content select="#btn-x"></ng-content>
                 <h6 class="card-subtitle mb-2 text-body-secondary">Price: {{product?.price}}</h6>
                 <p class="card-text">{{ product?.description }}</p>
                 <p class="card-text">{{ product?.brand}}</p>
                 <p class="card-text" *ngIf="product?.outOfStock">Out of Stock</p>
             </div>
             <app-add-remove-cart (onAdd)="onAddToCart.emit(product)" (onSubstract)="onRemoveFromCart.emit(product?.id)" [count]="noOfItemInTheCart"></app-add-remove-cart>
+            <app-add-remove-cart (onAdd)="onAddToCart.emit(product)" (onSubstract)="onRemoveFromCart.emit(product?.id)" [count]="noOfItemInTheCart"></app-add-remove-cart>
+            <ng-content select="#p-y"></ng-content>
         </div>
     </div>
 </div>
+

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductService } from 'src/app/services/product.service';
 import { FormsModule } from '@angular/forms';
+import { ProductResolver } from 'src/app/services/product.resolve';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     FormsModule,
     RouterModule.forChild([
-      { path: '', component: ProductsComponent },
+      { path: '', component: ProductsComponent, resolve: [ProductResolver] },
       { path: ':productId', component: ProductDetailComponent  }
     ])
   ],
